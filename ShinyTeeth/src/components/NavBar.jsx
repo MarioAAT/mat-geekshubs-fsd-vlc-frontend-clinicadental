@@ -3,8 +3,6 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'react-bootstrap/Image'
 import img from '../images/endodoncia.png'
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
 import './NavBar.css'
 
 export const NavBar = () => {

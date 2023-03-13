@@ -1,13 +1,23 @@
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Carousel from 'react-bootstrap/Carousel';
+import imgChild from "../../images/dentistchild.jpg";
+import imgOrt from "../../images/odontopediatra.jpg";
+import imgRev from "../../images/dentistrevision.jpg";
+import './Home.css'
 
 export const Home = () => {
   return (
     <>
-    <Carousel fade>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="../../images/dentistchild.jpg"
+    <Container fluid >
+    <Row >
+    <Col className="imgcarousel">
+    <Carousel fade className="carouselHome">
+      <Carousel.Item className="imgcarousel">
+        <img 
+          className=" w-100 imgcarousel "
+          src={imgRev}
           alt="First slide"
         />
         <Carousel.Caption>
@@ -15,10 +25,10 @@ export const Home = () => {
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item className="imgcarousel">
         <img
-          className="d-block w-100"
-          src="../../images/dentistchild.jpg"
+          className=" w-100 imgcarousel "
+          src={imgOrt}
           alt="Second slide"
         />
 
@@ -27,21 +37,42 @@ export const Home = () => {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item className="imgcarousel">
         <img
-          className="d-block w-100"
-          src="../../images/ortodoncia.jpg"
+          className=" w-100 imgcarousel "
+          src={imgChild} 
           alt="Third slide"
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <h3>Tu mejor sonrisa!</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Nuestra mayor felicidad.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    </Col>
+    </Row>
+    </Container>
+    {/* <Container fluid className='textHome1'>
+    <h1>Shiny Teeth Clínica Dental:</h1>
+    <h2>la salud de tu boca, en las mejores manos.</h2>
+    <p> En Shiny Teeth Clínica Dental te ofrecemos un servicio de Odontología responsable, 
+      donde se ofrece al paciente ÚNICAMENTE lo que necesita, con dentistas y tratamientos 
+      dentales que mejoran su calidad de vida e influyen en su estado emocional, aportándole 
+      autoestima, felicidad y satisfacción.</p>
+    </Container> */}
+    <Container fluid className='textHome2'>
+      <h1>Tratamientos dentales.</h1>
+      <p>Ponemos a tu disposición dentistas de total confianza, una atención al paciente 
+        cercana y personal y un amplio abanico de tratamientos dentales innovadores al mejor precio.</p>
+    </Container>
+    <Container>
+      <div className='divicon'>
+        <div className='revision'></div>
+      </div>
+    </Container>
     </>
   )
 }
