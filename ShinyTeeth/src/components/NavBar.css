@@ -3,6 +3,21 @@ body{
 }
 
 .navBar{
+    background-color: #ECF2FF;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imgNavBar{
+    height: 10vh;
+    width: 8vw;
+}
+.yo{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.titleNavBar{
+    font-size: xx-large;
 }
