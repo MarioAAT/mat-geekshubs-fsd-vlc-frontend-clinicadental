@@ -6,6 +6,9 @@ import imgChild from "../../images/dentistchild.jpg";
 import imgOrt from "../../images/odontopediatra.jpg";
 import imgRev from "../../images/dentistrevision.jpg";
 import './Home.css'
+import { Card1 } from '../../components/Card1';
+import { Database } from '../../database/Database';
+
 
 export const Home = () => {
   return (
@@ -55,24 +58,28 @@ export const Home = () => {
     </Col>
     </Row>
     </Container>
-    {/* <Container fluid className='textHome1'>
+    <Container fluid className='textHome2'>
+      <h1>Tratamientos dentales.</h1>
+      <p>Ponemos a tu disposición dentistas de total confianza, una atención al paciente 
+        cercana y personal y un amplio abanico de tratamientos dentales innovadores al mejor precio.</p>
+    </Container>
+    <Container fluid className="conatinerCards">
+      <Row className="dflex justify-content-center gap-3 mt-3" >
+        {Database.map(personaje => { return <Card1 key= { personaje.id } personajeProp={ personaje }/> })}
+      </Row>
+    </Container>
+    <Container fluid className='textHome1'>
     <h1>Shiny Teeth Clínica Dental:</h1>
     <h2>la salud de tu boca, en las mejores manos.</h2>
     <p> En Shiny Teeth Clínica Dental te ofrecemos un servicio de Odontología responsable, 
       donde se ofrece al paciente ÚNICAMENTE lo que necesita, con dentistas y tratamientos 
       dentales que mejoran su calidad de vida e influyen en su estado emocional, aportándole 
       autoestima, felicidad y satisfacción.</p>
-    </Container> */}
-    <Container fluid className='textHome2'>
-      <h1>Tratamientos dentales.</h1>
-      <p>Ponemos a tu disposición dentistas de total confianza, una atención al paciente 
-        cercana y personal y un amplio abanico de tratamientos dentales innovadores al mejor precio.</p>
     </Container>
-    <Container>
-      <div className='divicon'>
-        <div className='revision'></div>
-      </div>
-    </Container>
+
+
+
+   
     </>
   )
 }
