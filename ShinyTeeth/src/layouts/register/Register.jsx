@@ -3,9 +3,32 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/esm/Container';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { InputText } from '../../components/inputText';
+import { useEffect, useState } from 'react';
 import './Register.css'
 
 export const Register = () => {
+
+  const [credenciales, setCredenciales]= useState ({
+
+    name: "",
+    email: "",
+    password: "",
+    address: "",
+    city: "",
+    zip:""
+
+  })
+
+const inputHandler = (e) => {
+  setCredenciales((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+  }));
+}
+
+  useEffect(() => {console.log(credenciales)}, [credenciales])
+
   return (
     <>
     <Container className='tituloRegistro mt-5'>
@@ -14,44 +37,72 @@ export const Register = () => {
     <Container className='mt-5' >
     <Form>
       <Row className="mb-3">
+      <Form.Group as={Col} controlId="formGridEmail">
+          <Form.Label>Name</Form.Label>
+          <InputText
+              className={'inputBasicDesign'}
+              type={'text'}
+              name={'name'}
+              placeholder={'Name...'}
+              changeFunction={(e) => inputHandler(e)}
+          />
+        </Form.Group>
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <InputText
+              className={'inputBasicDesign'}
+              type={'text'}
+              name={'email'}
+              placeholder={'Email...'}
+              changeFunction={(e) => inputHandler(e)}
+          />
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <InputText
+
+              className={'inputBasicDesign'}
+              type={'password'}
+              name={'password'}
+              placeholder={'Password...'}
+              changeFunction={(e) => inputHandler(e)}
+          />
         </Form.Group>
       </Row>
 
       <Form.Group className="mb-3" controlId="formGridAddress1">
         <Form.Label>Address</Form.Label>
-        <Form.Control placeholder="1234 Main St" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formGridAddress2">
-        <Form.Label>Address 2</Form.Label>
-        <Form.Control placeholder="Apartment, studio, or floor" />
+        <InputText
+            className={'inputBasicDesign'}
+            type={'text'}
+            name={'address'}
+            placeholder={'Address...'}
+            changeFunction={(e) => inputHandler(e)}
+        />
       </Form.Group>
 
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridCity">
           <Form.Label>City</Form.Label>
-          <Form.Control />
-        </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridState">
-          <Form.Label>State</Form.Label>
-          <Form.Select defaultValue="Choose...">
-            <option>Choose...</option>
-            <option>...</option>
-          </Form.Select>
+          <InputText 
+            className={'inputBasicDesign'}
+            type={'text'}
+            name={'city'}
+            placeholder={'City...'}
+            changeFunction={(e) => inputHandler(e)}
+          />
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridZip">
           <Form.Label>Zip</Form.Label>
-          <Form.Control />
+          <InputText 
+            className={'inputBasicDesign'}
+            type={'number'}
+            name={'zip'}
+            placeholder={'ZipCode...'}
+            changeFunction={(e) => inputHandler(e)}
+            />
         </Form.Group>
       </Row>
 
