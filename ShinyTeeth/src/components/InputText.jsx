@@ -1,6 +1,7 @@
 import './InputText.css'
+import React from 'react'
 
-export const InputText = ({className, type, name, placeholder, changeFunction}) => {
+export const InputText = ({className, type, name, placeholder, required, changeFunction, blurFunction}) => {
   return (
     <>
     <input
@@ -8,7 +9,10 @@ export const InputText = ({className, type, name, placeholder, changeFunction}) 
         type={type}
         name={name}
         placeholder={placeholder}
-        onChange={changeFunction}
+        required={required}
+        onChange={(e)=>changeFunction(e)}
+        onBlur={(e)=>blurFunction(e)}            
+
 
     // onChange sirve para darle propiedades a un elemento.
     />
