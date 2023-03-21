@@ -10,11 +10,11 @@ export const MainApp = () => {
     <>
     <NavBar/>
     <Routes>
-        <Route path='*' element={<Navigate to="/"/>}/>
         <Route path='/' element={<Home/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/profile' element={<Profile/>}/>
+        <Route path='*' element={<Navigate to="/"/>}/>
     </Routes>
     </>
   )

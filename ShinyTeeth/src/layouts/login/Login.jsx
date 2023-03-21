@@ -1,27 +1,19 @@
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/esm/Container';
-import Form from 'react-bootstrap/Form';
-import { InputText } from '../../components/inputText';
 import React, { useEffect, useState } from 'react';
-import { validate } from '../../helpers/useful';
-import { logMe } from '../../services/apiCalls';
-import { useDispatch, useSelector } from 'react-redux';
-import { login, userData } from '../userSlice';
+import { Container, Form,  Button} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { decodeToken } from 'react-jwt';
+import { InputText } from '../../components/inputText';
+import { validate } from '../../helpers/useful';
+import { logMe } from '../../services/apiCalls'
 import './Login.css'
 
 export const Login = () => {
 
-  const credentialsRdx = useSelector(userData);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   
   const [credenciales, setCredenciales]= useState ({
-
     email: "",
     password: ""
-
   })
 
   const inputHandler = (e) => {
@@ -33,7 +25,7 @@ export const Login = () => {
 
   const [credencialesError, setCredencialesError] = useState({
     emailError: "",
-    passwordError:""
+    passwordError: ""
   });
 
   const [valiCredenciales, setValiCredenciales] = useState({
@@ -43,10 +35,7 @@ export const Login = () => {
 
   const [loginAct, setLoginAct] = useState(false);
   
-  const [welcome, setWelcome] = useState("");
-
   useEffect(() => {
-  console.log(credenciales)
   for(let error in credencialesError){
     if(credencialesError[error] !== ""){
       setLoginAct(false);
@@ -68,20 +57,10 @@ export const Login = () => {
     }
   }
 
-
   setLoginAct(true);
   });  
 
-  useEffect(() => {
-    if (credentialsRdx.credentials.token) {
-      //Si No token...home redirect
-      navigate("/");
-    }
-  }, []);
-
   const checkError = (e) => {
-
-
     let error = "";
 
     let checked = validate(
@@ -106,22 +85,32 @@ export const Login = () => {
   };
 
   const logeame = () => {
+    // console.log('Hemos llegado a logeame')
+
     logMe(credenciales)
       .then((respuesta) => {
-        let decodificado = decodeToken (respuesta.data)
+        console.log('Respuesta del backend', respuesta)
+        const { data } = respuesta
+        const decodedToken = decodeToken(data.token)
+        // let decodificado = decodeToken (respuesta.data)
         let datosBackend={
-          token: respuesta.data,
-          usuario: decodificado
+          userId: decodedToken.userId,
+          roleId: decodedToken.roleId,
+          patientId: decodedToken.patientId,
+          professionalId: decodedToken.professionalId,
+          token: data.token
         };
-        console.log(datosBackend)
-        dispatch(login({ credentials: datosBackend }));
-        setWelcome(`Bienvenid@ de nuevo ${datosBackend.usuario.name}`);
-        setTimeout(() => {
-          navigate("/");
-        }, 3000);
-      })
-      .catch((error) => console.log(error));
+        console.log(datosBackend)})
+        // dispatch(login({ credentials: datosBackend }));
+        // setWelcome(`Bienvenid@ de nuevo ${datosBackend.usuario.name}`);
+        // setTimeout(() => {
+        //   navigate("/");
+        // }, 3000);
+      // })
+      // .catch((error) => console.log(error));
   };
+
+    
 
   return (
     <>
@@ -156,12 +145,13 @@ export const Login = () => {
               blurFunction={(e) => checkError(e)}
               />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit" 
-          onClick= {loginAct ? () => {logeame(); }: () => {} }>
-        Submit
+      </Form.Group> */}
+      <Button
+        variant="primary"
+        onClick= {() => logeame()}
+        >Submit
       </Button>
     </Form>
     </Container>

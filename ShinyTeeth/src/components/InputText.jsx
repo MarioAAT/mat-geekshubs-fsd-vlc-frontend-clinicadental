@@ -12,9 +12,6 @@ export const InputText = ({className, type, name, placeholder, required, changeF
         required={required}
         onChange={(e)=>changeFunction(e)}
         onBlur={(e)=>blurFunction(e)}            
-
-
-    // onChange sirve para darle propiedades a un elemento.
     />
     </>
   )

@@ -1,97 +1,77 @@
 export const validate = (name, data, required) => {
     switch (name) {
-    case "name":
-    case "surname":
-    case "nombre":
-    case "apellido":
-    //Aqui evaluaremos strings que NO pueden tener números
+        case "name":
+        case "surname":
+        case "nombre":
+        case "apellido":
+            //Aqui evaluaremos strings que NO pueden tener números
+            if (data === "" && required === true) {
+                return {message: "Please fill the field", validated: false};
+                //Evaluamos mediante la expresión regular 
+            } else if (!/[a-z]/gi.test(data)) {
+                return {message: "Please fill with a valid text", validated: false};
+            }
+            return {message: "", validated: true};
 
-    if (data === "" && required === true) {
+        case "email":
+            if (data === "" && required === true) {
+                return {message: "Please fill the field", validated: false};
+            } else if (
+                !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(data)
+            ) {
+                return {message: "Invalid e-mail format", validated: false};
+            }
+            return {message: "", validated: true};
 
-        
-        return {message: "Please fill the field", validated: false};
+        case "password":
+            if (data === "" && required === true) {
+                return {message: "Please fill the field", validated: false};
+            } else if (!/[\d()+-]/g.test(data)) {
+                return {message: "Invalid password format", validated: false};
+            }
+            return {message: "", validated: true};
 
-        //Evaluamos mediante la expresión regular 
-    } else if (!/[a-z]/gi.test(data)) {
-        return {message: "Please fill with a valid text", validated: false};
-    }
+        case "address":
+        case "direccion":
+            if (data === "" && required === true) {
+                return {message: "Please fill the field", validated: false};
+            } else if (!/[a-z]/gi.test(data)) {
+                return {message: "Please fill with a valid text", validated: false};
+            }
+            return {message: "", validated: true};
 
-    return {message: "", validated: true};
+        case "city":
+        case "ciudad":
+        case "region":
+            if (data === "" && required === true) {
+                return {message: "Please fill the field", validated: false};
+            } else if (!/[a-z]/gi.test(data)) {
+                return {message: "Please fill with a valid text", validated: false};
+            }
+                return {message: "", validated: true};
 
-    case "email":
-    if (data === "" && required === true) {
-        return {message: "Please fill the field", validated: false};
-    } else if (
-        !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(data)
-    ) {
-        return {message: "Invalid e-mail format", validated: false};
-    }
+        case "zip":
+        case "zipcode":
+        case "codigo postal":
+            if (data === "" && required === true) {
+                return {message: "Please fill the field", validated: false};
+            } else if (!/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/gi.test(data)) {
+                return {message: "Please fill with a valid text", validated: false};
+            }
+                return {message: "", validated: true};
 
-    return {message: "", validated: true};
+        case "phone":
+        case "tfno":
+        case "telefono":
+        case "phonenumber":
+            break;
 
-    case "password":
-    if (data === "" && required === true) {
-        return {message: "Please fill the field", validated: false};
-    } else if (!/[\d()+-]/g.test(data)) {
-        return {message: "Invalid password format", validated: false};
-    }
-    return {message: "", validated: true};
+        case "dni":
+        case "document":
+        case "nif":
+            break;
 
-    case "address":
-    case "direccion":
-    case "domicilio":
-
-    if (data === "" && required === true) {
-
-        
-        return {message: "Please fill the field", validated: false};
-    } else if (!/[a-z]/gi.test(data)) {
-        return {message: "Please fill with a valid text", validated: false};
-    }
-
-        return {message: "", validated: true};
-
-    case "city":
-    case "ciudad":
-    case "region":
-
-    if (data === "" && required === true) {
-
-        
-        return {message: "Please fill the field", validated: false};
-    } else if (!/[a-z]/gi.test(data)) {
-        return {message: "Please fill with a valid text", validated: false};
-    }
-
-        return {message: "", validated: true};
-
-    case "zip":
-    case "zipcode":
-    case "codigo postal":
-
-    if (data === "" && required === true) {
-
-        
-        return {message: "Please fill the field", validated: false};
-    } else if (!/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/gi.test(data)) {
-        return {message: "Please fill with a valid text", validated: false};
-    }
-
-        return {message: "", validated: true};
-
-
-    case "phone":
-    case "tfno":
-    case "telefono":
-    case "phonenumber":
-    break;
-
-    case "dni":
-    case "document":
-    case "nif":
-    break;
-
-    default:
-    console.log("Fielt not recognized");
+        default:
+            console.log("Fielt not recognized");
 }
 };

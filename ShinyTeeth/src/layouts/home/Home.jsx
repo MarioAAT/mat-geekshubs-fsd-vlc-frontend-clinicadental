@@ -76,10 +76,6 @@ export const Home = () => {
       dentales que mejoran su calidad de vida e influyen en su estado emocional, aportándole 
       autoestima, felicidad y satisfacción.</p>
     </Container>
-
-
-
-   
     </>
   )
 }
