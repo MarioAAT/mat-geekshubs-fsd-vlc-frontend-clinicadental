@@ -85,14 +85,12 @@ export const Login = () => {
   };
 
   const logeame = () => {
-    // console.log('Hemos llegado a logeame')
 
     logMe(credenciales)
       .then((respuesta) => {
         console.log('Respuesta del backend', respuesta)
         const { data } = respuesta
         const decodedToken = decodeToken(data.token)
-        // let decodificado = decodeToken (respuesta.data)
         let datosBackend={
           userId: decodedToken.userId,
           roleId: decodedToken.roleId,

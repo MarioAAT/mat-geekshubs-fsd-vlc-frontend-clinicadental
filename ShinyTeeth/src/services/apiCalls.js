@@ -7,6 +7,6 @@ export const logMe = async (body) => {
     return await axios.post(`${root}/api/signin`, body);
 } 
 
-export const signMeUp = async (body) => {
+export const nuevoUsuario = async (body) => {
   return await axios.post(`${root}/api/signup`, body)
 }
