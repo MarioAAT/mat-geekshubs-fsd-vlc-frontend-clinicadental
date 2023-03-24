@@ -5,7 +5,7 @@ import { getUserData } from '../../services/apiCalls.js';
 
 export const Profile = () => {
   const detailRedux = useSelector(userData);
-  console.log(detailRedux.credentials)
+  console.log(detailRedux)
     const [users, setUsers] = useState({
       firstname: '',
       middlename: '',
@@ -16,13 +16,13 @@ export const Profile = () => {
         
     );
 
-    console.log(detailRedux)
+    console.log('jdjgfhdjgfhdj',detailRedux)
 
     useEffect(() => {
-        if (users.name === "") {
+        if (users.firstname === "") {
         getUserData(detailRedux?.credentials?.token)
             .then((result) => {
-            console.log(result.data, "hola soy yo");
+            console.log(result.data);
             setUsers({
               firstname: result.data.user.first_name,
               middlename: result.data.user.middle_name,
@@ -34,6 +34,7 @@ export const Profile = () => {
             .catch((error) => console.log(error));
         }
     }, [users]);
+    console.log('holajdhfhhgf', users);
 
     return (
       <>
@@ -41,13 +42,13 @@ export const Profile = () => {
           <div className='texto'>Name: </div>
           {users.firstname}
           <div className='texto'>Middle Name: </div>
-          {detailRedux?.choosenObject?.middlename}
+          {users.middlename}
           <div className='texto'>Last Name: </div>
-          {detailRedux?.choosenObject?.lastname}
+          {users.lastname}
           <div className='texto'>Mobile Phone: </div>
-          {detailRedux?.choosenObject?.mobilephone}
+          { users.mobilephone}
           <div className='texto'>Email: </div>
-          {detailRedux?.choosenObject?.email}
+          {users.email}
         </div>
       </>
     )

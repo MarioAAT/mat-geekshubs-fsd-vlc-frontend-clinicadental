@@ -109,7 +109,7 @@ export const Login = () => {
         setWelcome(`Bienvenid@ de nuevo ${datosBackend.usuario}`);
         setTimeout(() => {
           navigate("/");
-        }, 1000);
+        }, 500);
       })
       .catch((error) => console.log(error));
   };
