@@ -93,7 +93,7 @@ export const Register = () => {
             .then(() => {
                 setTimeout(() => {
                     navigate("/");
-                }, 2000);
+                }, 1000);
             })
             .catch((error) => console.log(error));
   };

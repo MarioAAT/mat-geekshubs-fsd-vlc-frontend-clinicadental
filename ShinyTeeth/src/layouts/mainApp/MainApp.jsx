@@ -1,5 +1,7 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { NavBar } from '../../components/NavBar';
+import { GetAllUsers } from '../allUsers/AllUsers';
+import { UserDetail } from '../userDetail/UserDetail'
 import { Home } from '../home/Home';
 import { Login } from '../Login/Login';
 import { Profile } from '../profile/Profile';
@@ -14,6 +16,8 @@ export const MainApp = () => {
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/profile' element={<Profile/>}/>
+        <Route path='/allUsers' element={<GetAllUsers/>}/>
+        <Route path='/userdetail' element={<UserDetail/>}/>
         <Route path='*' element={<Navigate to="/"/>}/>
     </Routes>
     </>

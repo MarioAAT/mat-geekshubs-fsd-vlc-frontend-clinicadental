@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Form,  Button} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { decodeToken } from 'react-jwt';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, userData } from '../userSlice' 
+import { Container, Form,  Button} from 'react-bootstrap';
 import { InputText } from '../../components/inputText';
 import { validate } from '../../helpers/useful';
 import { logMe } from '../../services/apiCalls'
@@ -9,7 +11,11 @@ import './Login.css'
 
 export const Login = () => {
 
+  const dispatch = useDispatch();
+  const credentialsRdx = useSelector(userData);
+
   const navigate = useNavigate();
+  const [welcome, setWelcome] = useState("");
   
   const [credenciales, setCredenciales]= useState ({
     email: "",
@@ -98,14 +104,14 @@ export const Login = () => {
           professionalId: decodedToken.professionalId,
           token: data.token
         };
-        console.log(datosBackend)})
-        // dispatch(login({ credentials: datosBackend }));
-        // setWelcome(`Bienvenid@ de nuevo ${datosBackend.usuario.name}`);
-        // setTimeout(() => {
-        //   navigate("/");
-        // }, 3000);
-      // })
-      // .catch((error) => console.log(error));
+        console.log(datosBackend)
+        dispatch(login({ credentials: datosBackend }));
+        setWelcome(`Bienvenid@ de nuevo ${datosBackend.usuario}`);
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      })
+      .catch((error) => console.log(error));
   };
 
     
