@@ -103,7 +103,7 @@ export const Register = () => {
     <Container className='tituloRegistro mt-5'>
     <h1 className=''>REGISTRO</h1>
     </Container>
-    <Container className='mt-5' >
+    <Container className='mt-5 registerF' >
     <Form>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridEmail">
@@ -139,7 +139,7 @@ export const Register = () => {
       </Row>
 
       <Button className={
-          registerAct ? "registerSendDeac registerSendAct" : "registerSendDeac"
+          registerAct ? "registerSendDeac registerSendAct buttonregister" : "registerSendDeac"
         }
         onClick={
           registerAct

@@ -17,7 +17,7 @@ export const getAllUsers = async ( token ) => {
       'Authorization': 'Bearer '+ token  
     }
   };
-  return await axios.get(`${root}/api/users`, config );
+  return await axios.get(`${root}/api/users/admin`, config );
 };
 
 export const getUserData = async (token) => {
@@ -28,4 +28,14 @@ export const getUserData = async (token) => {
     }
     };
     return await axios.get(`${root}/api/users`, config)
+}
+
+export const getAppointmentasUser = async (token) => {
+
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+    };
+    return await axios.get(`${root}/api/patient/appointments`, config)
 }

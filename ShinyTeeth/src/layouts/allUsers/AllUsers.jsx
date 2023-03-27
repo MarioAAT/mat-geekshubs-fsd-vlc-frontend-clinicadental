@@ -18,7 +18,7 @@ export const GetAllUsers = () => {
         // Este saca el array con los usuarios
         if(users.length === 0){
 
-            getAllUsers(ReduxCredentials.credentials?.token)
+            getAllUsers(ReduxCredentials.credentials.token)
                 .then(
                     result => {
 
@@ -42,13 +42,13 @@ export const GetAllUsers = () => {
     return (
         <>
         <div className='usersDesign'>
-            {users.length > 0 ? 
+            { users.length > 0 ? 
                 (<div>{users.map(
                     persona => {
                         return (
                         <div
                         onClick={()=>selected(persona)} 
-                        key={persona._id}>
+                        key={persona.id}>
                         {/* {persona.first_name} */}
                         {persona.email}
                         </div>

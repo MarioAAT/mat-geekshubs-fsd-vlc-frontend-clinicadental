@@ -1,11 +1,16 @@
 .inputBasicDesign {
 
     border: 0.2em solid blue;
-
     margin: 3em;
-
     height: 2em;
     width: 14em;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 5px #ccc;
+    font-size: 16px;
+    color: #333;
+    margin-top: 5px;
 }
 
 .inputErrorDesign {

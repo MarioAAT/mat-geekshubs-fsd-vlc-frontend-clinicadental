@@ -5,7 +5,6 @@ import { getUserData } from '../../services/apiCalls.js';
 
 export const Profile = () => {
   const detailRedux = useSelector(userData);
-  console.log(detailRedux)
     const [users, setUsers] = useState({
       firstname: '',
       middlename: '',
@@ -24,6 +23,7 @@ export const Profile = () => {
             .then((result) => {
             console.log(result.data);
             setUsers({
+              patientId: result.data.user.patient_id,
               firstname: result.data.user.first_name,
               middlename: result.data.user.middle_name,
               lastname: result.data.user.last_name,
@@ -39,6 +39,8 @@ export const Profile = () => {
     return (
       <>
         <div className=''>
+        <div className='texto'>PatientId: </div>
+          {users.patientId}
           <div className='texto'>Name: </div>
           {users.firstname}
           <div className='texto'>Middle Name: </div>
