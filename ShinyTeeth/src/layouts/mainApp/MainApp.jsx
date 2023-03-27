@@ -7,6 +7,7 @@ import { Login } from '../Login/Login';
 import { Profile } from '../profile/Profile';
 import { Register } from '../register/Register';
 import { AppointmentUser } from '../appointment/AppointmentUser';
+import { CreateAppointment } from '../appointment/createAppointment';
 
 export const MainApp = () => {
   return (
@@ -20,6 +21,7 @@ export const MainApp = () => {
         <Route path='/allUsers' element={<GetAllUsers/>}/>
         <Route path='/userdetail' element={<UserDetail/>}/>
         <Route path='/appointmentuser' element={<AppointmentUser/>}/>
+        <Route path='/createappointment' element={<CreateAppointment/>}/>
         <Route path='*' element={<Navigate to="/"/>}/>
     </Routes>
     </>

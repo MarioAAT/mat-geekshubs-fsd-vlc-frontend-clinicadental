@@ -39,3 +39,21 @@ export const getAppointmentasUser = async (token) => {
     };
     return await axios.get(`${root}/api/patient/appointments`, config)
 }
+
+export const getTreatment = async (data, token) => {
+
+
+  return await axios.get(`${root}/api/dentaltreatments`, data, token
+  )
+}
+
+export const postAppointment = async (body, token) => {
+ console.log(token, "hola soy el amug mario")
+ const config = {
+  headers: {
+    'Authorization': `Bearer ${token}`
+  }
+};
+  return await axios.post(`${root}/api/patient/appointments`, body, config)
+}
+

@@ -32,7 +32,8 @@ const navigate = useNavigate()
                     {credentialsRdx.credentials.roleId === 2 ? (
                     <>
                     <Nav.Link as={Link} to='/profile'>Perfil</Nav.Link>
-                    <Nav.Link as={Link} to='/appointmentuser'>Appointment</Nav.Link>
+                    <Nav.Link as={Link} to='/appointmentuser'>See my Appointments</Nav.Link>
+                    <Nav.Link as={Link} to='/createappointment'>Create an Appointment</Nav.Link>
                     <Nav.Link as={Link} to='/logout' onClick={() => logout()}>Logout</Nav.Link>
                     </>
                     ) : credentialsRdx.credentials.roleId === 3 ? (

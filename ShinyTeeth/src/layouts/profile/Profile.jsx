@@ -15,15 +15,11 @@ export const Profile = () => {
         
     );
 
-    console.log('jdjgfhdjgfhdj',detailRedux)
-
     useEffect(() => {
         if (users.firstname === "") {
         getUserData(detailRedux?.credentials?.token)
             .then((result) => {
-            console.log(result.data);
             setUsers({
-              patientId: result.data.user.patient_id,
               firstname: result.data.user.first_name,
               middlename: result.data.user.middle_name,
               lastname: result.data.user.last_name,
@@ -34,13 +30,10 @@ export const Profile = () => {
             .catch((error) => console.log(error));
         }
     }, [users]);
-    console.log('holajdhfhhgf', users);
 
     return (
       <>
         <div className=''>
-        <div className='texto'>PatientId: </div>
-          {users.patientId}
           <div className='texto'>Name: </div>
           {users.firstname}
           <div className='texto'>Middle Name: </div>
