@@ -52,7 +52,6 @@ export const getTreatment = async (data, token) => {
 }
 
 export const postAppointment = async (body, token) => {
- console.log(token, "hola soy el amug mario")
  const config = {
   headers: {
     'Authorization': `Bearer ${token}`

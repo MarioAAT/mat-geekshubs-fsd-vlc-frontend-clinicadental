@@ -13,39 +13,13 @@ export const AppointmentUser = () => {
 
     
     const [appointments, setAppointments] = useState([]);
-    const [treatments, setTreatments] = useState([
-        // {
-        //     id: 1,
-        //     servicename: "Cirugía Oral"
-        // },
-        // {
-        //     id: 2,
-        //     servicename: "Periodoncia"
-        // },
-        // {
-        //     id: 3,
-        //     servicename: "Ortodoncia"
-        // },
-        // {
-        //     id: 4,
-        //     servicename: "Cirugía Oral"
-        // },
-        // {
-        //     id: 5,
-        //     servicename: "Endodoncia"
-        // },
-        // {
-        //     id: 6,
-        //     servicename: "Obturación dental"
-        // },
-        ]);
+    const [treatments, setTreatments] = useState([]);
 
     useEffect(() => {
         if(appointments.length === 0) {
             getAppointmentasUser(ReduxCredentials?.credentials?.token)
             .then((result) => {
                 setAppointments(result.data.appointments);
-                console.log(result);
             })
             .catch((error) => {
                 console.log(error);
@@ -55,7 +29,6 @@ export const AppointmentUser = () => {
         if(treatments.length === 0) { 
             getTreatment(ReduxCredentials?.credentials?.token)
             .then((result) => {
-                console.log('Hey, Culero!!',result);
                 setTreatments(result.data);
             })
             .catch((error) => {
@@ -63,8 +36,6 @@ export const AppointmentUser = () => {
             });
         }
     }, [appointments, treatments]);
-console.log(appointments)
-console.log(treatments)
 
     return (
         <>

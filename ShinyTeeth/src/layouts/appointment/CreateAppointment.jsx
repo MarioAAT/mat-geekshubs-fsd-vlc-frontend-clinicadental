@@ -73,8 +73,6 @@ const [treatments, setTreatments] = useState([
         start_at:"",
         end_at:""
     });
-
-    console.log(credential);
     
     const inputHandler = (e) => {
         setCredential((prevState) => ({
@@ -93,13 +91,11 @@ const bookApp = () => {
 postAppointment(credential, credentialsRdx?.credentials?.token)
 .then ( respuesta => { 
     setCredential(respuesta.data)
-    console.log('cabroooon',respuesta);
     setTimeout(() => {
         navigate("/");
     }, 500);
 }) .catch(error => {setCredential(error.message)})
 }
-console.log('Cabron!!!!!', credentialsRdx.credentials.patientId);
 
 return (
 <>

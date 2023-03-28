@@ -77,8 +77,6 @@ export const Login = () => {
 
     error = checked.message;
 
-    console.log("Validación",valiCredenciales)
-
     setValiCredenciales((prevState) => ({
       ...prevState,
       [e.target.name + "Vali"]: checked.validated,
@@ -94,7 +92,6 @@ export const Login = () => {
 
     logMe(credenciales)
       .then((respuesta) => {
-        console.log('Respuesta del backend', respuesta)
         const { data } = respuesta
         const decodedToken = decodeToken(data.token)
         let datosBackend={
@@ -104,7 +101,6 @@ export const Login = () => {
           professionalId: decodedToken.professionalId,
           token: data.token
         };
-        console.log(datosBackend)
         dispatch(login({ credentials: datosBackend }));
         setWelcome(`Bienvenid@ de nuevo ${datosBackend.usuario}`);
         setTimeout(() => {
@@ -149,9 +145,6 @@ export const Login = () => {
               blurFunction={(e) => checkError(e)}
               />
       </Form.Group>
-      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group> */}
       <Button
         variant="primary"
         onClick= {() => logeame()}
