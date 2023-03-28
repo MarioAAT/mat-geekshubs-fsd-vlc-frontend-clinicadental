@@ -41,10 +41,14 @@ export const getAppointmentasUser = async (token) => {
 }
 
 export const getTreatment = async (data, token) => {
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  };
 
 
-  return await axios.get(`${root}/api/dentaltreatments`, data, token
-  )
+  return await axios.get(`${root}/api/dentaltreatments`, data, config)
 }
 
 export const postAppointment = async (body, token) => {

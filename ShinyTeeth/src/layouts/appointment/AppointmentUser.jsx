@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Col, Container, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CardAppointment from '../../components/AppointmentC';
 import { getAppointmentasUser } from '../../services/apiCalls';
 import { getTreatment } from '../../services/apiCalls';
@@ -9,9 +9,36 @@ import { userData } from '../userSlice';
 export const AppointmentUser = () => {
 
     const ReduxCredentials = useSelector(userData);
+    const dispatch = useDispatch();
+
     
     const [appointments, setAppointments] = useState([]);
-    const [treatment, setTreatment] = useState([]);
+    const [treatments, setTreatments] = useState([
+        // {
+        //     id: 1,
+        //     servicename: "Cirugía Oral"
+        // },
+        // {
+        //     id: 2,
+        //     servicename: "Periodoncia"
+        // },
+        // {
+        //     id: 3,
+        //     servicename: "Ortodoncia"
+        // },
+        // {
+        //     id: 4,
+        //     servicename: "Cirugía Oral"
+        // },
+        // {
+        //     id: 5,
+        //     servicename: "Endodoncia"
+        // },
+        // {
+        //     id: 6,
+        //     servicename: "Obturación dental"
+        // },
+        ]);
 
     useEffect(() => {
         if(appointments.length === 0) {
@@ -25,17 +52,19 @@ export const AppointmentUser = () => {
             });
         }
 
-        if(treatment.length === 0) { 
-            getTreatment(ReduxCredentials?.token)
+        if(treatments.length === 0) { 
+            getTreatment(ReduxCredentials?.credentials?.token)
             .then((result) => {
                 console.log('Hey, Culero!!',result);
-                setTreatment(result.data.token.treatment);
+                setTreatments(result.data);
             })
             .catch((error) => {
                 console.log(error);
             });
         }
-    }, [appointments, treatment]);
+    }, [appointments, treatments]);
+console.log(appointments)
+console.log(treatments)
 
     return (
         <>
