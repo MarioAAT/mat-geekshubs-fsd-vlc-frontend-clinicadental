@@ -8,6 +8,7 @@ import { Profile } from '../profile/Profile';
 import { Register } from '../register/Register';
 import { AppointmentUser } from '../appointment/AppointmentUser';
 import { CreateAppointment } from '../appointment/createAppointment';
+import { AllAppointment } from '../appointment/AllAppointment';
 
 export const MainApp = () => {
   return (
@@ -22,6 +23,7 @@ export const MainApp = () => {
         <Route path='/userdetail' element={<UserDetail/>}/>
         <Route path='/appointmentuser' element={<AppointmentUser/>}/>
         <Route path='/createappointment' element={<CreateAppointment/>}/>
+        <Route path='/allappointment' element={<AllAppointment/>}/>
         <Route path='*' element={<Navigate to="/"/>}/>
     </Routes>
     </>

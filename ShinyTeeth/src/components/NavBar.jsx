@@ -32,7 +32,7 @@ const navigate = useNavigate()
                     {credentialsRdx.credentials.roleId === 2 ? (
                     <>
                     <Nav.Link as={Link} to='/'>Home</Nav.Link>
-                    <Nav.Link as={Link} to='/profile'>Perfil</Nav.Link>
+                    <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
                     <Nav.Link as={Link} to='/appointmentuser'>See my Appointments</Nav.Link>
                     <Nav.Link as={Link} to='/createappointment'>Create an Appointment</Nav.Link>
                     <Nav.Link as={Link} to='/logout' onClick={() => logout()}>Logout</Nav.Link>
@@ -40,14 +40,16 @@ const navigate = useNavigate()
                     ) : credentialsRdx.credentials.roleId === 3 ? (
                     <>
                     <Nav.Link as={Link} to='/'>Home</Nav.Link>
-                    <Nav.Link as={Link} to='/profile'>Perfil</Nav.Link>
+                    <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
+                    <Nav.Link as={Link} to='/allappointment'>See all Appointments</Nav.Link>
                     <Nav.Link as={Link} to='/logout' onClick={() => logout()}>Logout</Nav.Link>
                     </>
                     ) : credentialsRdx.credentials.roleId === 4 ? (
                     <>
                     <Nav.Link as={Link} to='/'>Home</Nav.Link>
-                    <Nav.Link as={Link} to='/profile'>Perfil</Nav.Link>
-                    <Nav.Link as={Link} to='/allUsers'>Usuarios</Nav.Link>
+                    <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
+                    <Nav.Link as={Link} to='/allappointment'>See all Appointments</Nav.Link>
+                    <Nav.Link as={Link} to='/allUsers'>Users</Nav.Link>
                     <Nav.Link as={Link} to='/logout' onClick={() => logout()}>Logout</Nav.Link>
                     </>
                     ) : (

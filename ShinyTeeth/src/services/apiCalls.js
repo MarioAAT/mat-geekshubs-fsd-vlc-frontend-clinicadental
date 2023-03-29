@@ -60,3 +60,12 @@ export const postAppointment = async (body, token) => {
   return await axios.post(`${root}/api/patient/appointments`, body, config)
 }
 
+export const getAllAppointments = async ( token ) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token  
+    }
+  };
+  return await axios.get(`${root}/api/allappointments`, config );
+};
+
