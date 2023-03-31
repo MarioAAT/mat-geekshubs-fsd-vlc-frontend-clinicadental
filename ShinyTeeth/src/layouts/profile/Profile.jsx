@@ -2,6 +2,9 @@ import React, { useState, useEffect }  from 'react';
 import { userData } from '../userSlice'; 
 import { useSelector } from 'react-redux';
 import { getUserData } from '../../services/apiCalls.js';
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export const Profile = () => {
   const detailRedux = useSelector(userData);
@@ -45,6 +48,7 @@ export const Profile = () => {
           <div className='texto'>Email: </div>
           {users.email}
         </div>
+        <Button as={Link} to={'/putprofile'} >Edit Profile</Button>
       </>
     )
 }

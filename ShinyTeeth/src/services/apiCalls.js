@@ -69,3 +69,14 @@ export const getAllAppointments = async ( token ) => {
   return await axios.get(`${root}/api/allappointments`, config );
 };
 
+export const updateProfile = async (body, token  ) => {
+  console.log("----------------------------------------------",)
+  console.log("Esto vale tokensss:",token)
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  };
+        return await axios.put(`${root}/api/users/`,body, config )
+}
+
