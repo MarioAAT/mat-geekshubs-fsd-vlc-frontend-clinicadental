@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { addChoosen } from '../detailSlice';
 import { getAllUsers } from '../../services/apiCalls'; 
 import { userData } from '../userSlice'; 
-
+import AllUserDesign from '../allUsers/AllUsersDesign.css'
 
 export const GetAllUsers = () => {
     
@@ -37,14 +37,15 @@ export const GetAllUsers = () => {
 
     return (
         <>
-        <div className='usersDesign'>
+        <div >
+            <div className='userTitle'><h1>USERS</h1></div>
             { users.length > 0 ? 
-                (<div>{users.map(
+                (<div className='usersContainer'>{users.map(
                     persona => {
                         return (
                         <div
                         onClick={()=>selected(persona)} 
-                        key={persona.id}>
+                        key={persona.id} className='usersDesign'>
                         {/* {persona.first_name} */}
                         {persona.first_name}
                         </div>
