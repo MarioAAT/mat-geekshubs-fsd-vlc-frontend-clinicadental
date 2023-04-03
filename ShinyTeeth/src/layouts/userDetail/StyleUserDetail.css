@@ -14,8 +14,9 @@
 }
 
 .texto{
+    align-content: center;
     box-sizing: border-box;
-    border-bottom: 2px solid #ddd;
+    border: 2px solid #ddd;
     border-radius: 3px;
     display:  flex;
     transition: all 0.3s ease-in-out;

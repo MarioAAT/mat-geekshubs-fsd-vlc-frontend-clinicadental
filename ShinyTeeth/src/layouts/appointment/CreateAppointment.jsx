@@ -6,6 +6,7 @@ import { postAppointment } from '../../services/apiCalls';
 import { userData } from '../userSlice';
 import { useNavigate } from 'react-router-dom';
 
+
 export const CreateAppointment = () => {
 
     const navigate = useNavigate();
@@ -99,11 +100,11 @@ postAppointment(credential, credentialsRdx?.credentials?.token)
 
 return (
 <>
-<div className='appointment-locat'>
-<Container className="container-register">
+<div className='loginform'>
+<Container className="loginform">
     <Row className="row-input">
     <Col md={12} lg={6} className="container-inputs">
-        <Form>
+        <Form className=''>
             <Form.Label>Treatment:</Form.Label>
             <Form.Select name={"treatment_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
                                 <option>Choose your Treatment:</option>

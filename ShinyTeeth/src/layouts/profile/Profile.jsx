@@ -36,19 +36,22 @@ export const Profile = () => {
 
     return (
       <>
-        <div className=''>
-          <div className='texto'>Name: </div>
-          {users.firstname}
-          <div className='texto'>Middle Name: </div>
-          {users.middlename}
-          <div className='texto'>Last Name: </div>
-          {users.lastname}
-          <div className='texto'>Mobile Phone: </div>
-          { users.mobilephone}
-          <div className='texto'>Email: </div>
-          {users.email}
-        </div>
-        <Button as={Link} to={'/putprofile'} >Edit Profile</Button>
+      <div className='allUsersDesigne'>
+        <div><h1>Profile</h1></div>
+          <div className='usersbox'>
+            <div className='texto'>Name </div>
+            {users.firstname}
+            <div className='texto'>Middle Name </div>
+            {users.middlename}
+            <div className='texto'>Last Name </div>
+            {users.lastname}
+            <div className='texto'>Mobile Phone </div>
+            { users.mobilephone}
+            <div className='texto'>Email </div>
+            {users.email}
+          </div>
+          <Button as={Link} to={'/putprofile'} >Edit Profile</Button>
+      </div>
       </>
     )
 }

@@ -13,8 +13,7 @@ export const PutProfile = () => {
 
     const ReduxCredentials = useSelector(userData);
     const [welcome, setWelcome] = useState("");
-    const navigate = useNavigate();
-    console.log(ReduxCredentials, "esto es Redux Profile") 
+    const navigate = useNavigate(); 
     const ID = ReduxCredentials.credentials.userId
 
     const [putProfile, setputProfile] = useState({
@@ -48,16 +47,15 @@ export const PutProfile = () => {
             setputProfile(error.message)
         });
     }
-    console.log(putProfile, "hola putappointment")
 
     return (
     <>
-    <Container className='profileform'>
+    <Container className='loginform'>
+    <div><h1>Edit Profile</h1></div>
     <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Name</Form.Label>
         <InputText 
-            className={''}
             type={'text'}
             name={'first_name'}
             placeholder={'First Name...'}
@@ -70,7 +68,6 @@ export const PutProfile = () => {
         <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Middle Name</Form.Label>
         <InputText 
-            className={''}
             type={'text'}
             name={'middle_name'}
             placeholder={'Middle Name...'}
@@ -83,7 +80,6 @@ export const PutProfile = () => {
         <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Last Name</Form.Label>
         <InputText 
-            className={''}
             type={'text'}
             name={'last_name'}
             placeholder={'Last Name...'}
@@ -96,7 +92,6 @@ export const PutProfile = () => {
         <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Mobile Phone</Form.Label>
         <InputText 
-            className={''}
             type={'text'}
             name={'mobile_phone'}
             placeholder={'Mobile Phone...'}
