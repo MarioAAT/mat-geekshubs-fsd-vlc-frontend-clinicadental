@@ -14,15 +14,11 @@ export const GetAllUsers = () => {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        // console.log("console log de users", users)      
-        // Este saca el array con los usuarios
         if(users.length === 0){
 
             getAllUsers(ReduxCredentials.credentials.token)
                 .then(
                     result => {
-
-                        console.log("asdfasdfasdfasdf",result);
                         setUsers(result.data.user_list)
 
                     }
@@ -50,7 +46,7 @@ export const GetAllUsers = () => {
                         onClick={()=>selected(persona)} 
                         key={persona.id}>
                         {/* {persona.first_name} */}
-                        {persona.email}
+                        {persona.first_name}
                         </div>
                         )
                     })

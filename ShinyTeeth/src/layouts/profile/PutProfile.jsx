@@ -44,7 +44,7 @@ export const PutProfile = () => {
                 navigate('/profile');
             }, 3500);
         })
-        .cath(error => {
+        .cath(error =>{
             setputProfile(error.message)
         });
     }
