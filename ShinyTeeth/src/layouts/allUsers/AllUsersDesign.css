@@ -21,6 +21,7 @@
 
 .usersDesign{
     box-sizing: border-box;
+    background-color: #ccc;
     padding: 20px;
     margin-bottom: 20px;
     border: 1px solid #ddd;

@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { detailData } from '../detailSlice'
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { detailData } from '../detailSlice';
+import StyleUserDetail from '../userDetail/StyleUserDetail.css' 
 
 export const UserDetail = () => {
 
@@ -14,7 +15,9 @@ export const UserDetail = () => {
 
   return (
     <>
-    <div className=''>
+    <div className='allUsersDesigne'>
+    <div><h1>User Detail</h1></div>
+    <div className='usersbox'>
       <div className='texto'>Name: </div>
       {detailRedux?.choosenObject?.first_name}
       <div className='texto'>Middle Name: </div>
@@ -25,6 +28,7 @@ export const UserDetail = () => {
       {detailRedux?.choosenObject?.mobile_phone}
       <div className='texto'>Email: </div>
       {detailRedux?.choosenObject?.email}
+      </div>
     </div>
     </>
   )
